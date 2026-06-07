@@ -1,0 +1,73 @@
+{
+  "log": {
+    "access": "",
+    "error": "",
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "port": 1080,
+      "protocol": "socks",
+      "settings": {
+        "auth": "noauth",
+        "udp": true
+      },
+      "tag": "socks-in"
+    },
+    {
+      "port": 1081,
+      "protocol": "http",
+      "settings": {},
+      "tag": "http-in"
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "SERVER_IP_ADDRESS",
+            "port": 10086,
+            "users": [
+              {
+                "id": "a3c8b9f7-2e1d-4a6c-9b5f-8e2c1a7d4b6f",
+                "alterId": 64,
+                "security": "auto",
+                "level": 1
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "none"
+      },
+      "tag": "vmess-out"
+    },
+    {
+      "protocol": "freedom",
+      "settings": {},
+      "tag": "direct"
+    }
+  ],
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "domain": [
+          "geosite:cn"
+        ],
+        "outboundTag": "direct"
+      },
+      {
+        "type": "field",
+        "ip": [
+          "geoip:cn"
+        ],
+        "outboundTag": "direct"
+      }
+    ]
+  }
+}
