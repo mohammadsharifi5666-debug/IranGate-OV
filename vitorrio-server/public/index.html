@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitorrio Server</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            background-color: #4caf50;
+            border-radius: 50%;
+            margin-left: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .info-box {
+            background: #f5f5f5;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .info-box label {
+            display: block;
+            color: #666;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .info-box p {
+            color: #333;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .api-section {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid #eee;
+        }
+
+        .api-section h2 {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .api-endpoint {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 12px;
+            margin-bottom: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            overflow-x: auto;
+        }
+
+        .method {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-weight: bold;
+            margin-right: 8px;
+            font-size: 11px;
+        }
+
+        .get { background: #61affe; color: white; }
+        .post { background: #49cc90; color: white; }
+
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Vitorrio Server</h1>
+        <div class="status">
+            <span>Server Status</span>
+            <div class="status-indicator"></div>
+        </div>
+
+        <div class="info-box">
+            <label>Server Address</label>
+            <p id="server-address">http://localhost:3000</p>
+        </div>
+
+        <div class="info-box">
+            <label>Status</label>
+            <p>✅ Running</p>
+        </div>
+
+        <div class="api-section">
+            <h2>📡 Available APIs</h2>
+            
+            <div class="api-endpoint">
+                <span class="method get">GET</span>
+                <code>/</code>
+            </div>
+            
+            <div class="api-endpoint">
+                <span class="method get">GET</span>
+                <code>/api/health</code>
+            </div>
+            
+            <div class="api-endpoint">
+                <span class="method get">GET</span>
+                <code>/api/info</code>
+            </div>
+            
+            <div class="api-endpoint">
+                <span class="method post">POST</span>
+                <code>/api/message</code>
+            </div>
+        </div>
+
+        <footer>
+            <p>Made with ❤️ for Vitorrio</p>
+            <p>© 2026 - All Rights Reserved</p>
+        </footer>
+    </div>
+</body>
+</html>
